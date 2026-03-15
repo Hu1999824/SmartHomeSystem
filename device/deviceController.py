@@ -5,9 +5,16 @@ import requests
 from typing import Dict, List, Tuple, Optional
 
 # ===== Try reading config.settings; if it doesn't exist, use environment variables/defaults. =====
-HA_API_URL : str = "http://127.0.0.1:8123"
-HA_TOKEN : Optional[str] = None
+# HA_API_URL : str = "http://127.0.0.1:8123"
+# HA_TOKEN : Optional[str] = None
+# REQUEST_TIMEOUT: int = 5
+HA_API_URL: Optional[str] = os.getenv("HA_API_URL")
+HA_TOKEN: Optional[str] = os.getenv("HA_TOKEN")
+
 REQUEST_TIMEOUT: int = 5
+to_env = os.getenv("REQUEST_TIMEOUT")
+if to_env and to_env.isdigit():
+    REQUEST_TIMEOUT = int(to_env)
 
 # try:
 #     from config.settings import HA_API_URL as _URL  # type: ignore

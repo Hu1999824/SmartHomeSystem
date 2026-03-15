@@ -17,7 +17,8 @@ class AssicentVectorDB:
         self.persist_directory = persist_directory
         self.collection_name = collection_name
         os.makedirs(persist_directory, exist_ok=True)
-        embedding_base_url = embedding_base_url or os.getenv("OLLAMA_BASE_URL", "http://192.168.124.155:8080")
+        # embedding_base_url = embedding_base_url or os.getenv("OLLAMA_BASE_URL", "http://192.168.124.155:8080")
+        embedding_base_url = embedding_base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 
         # Ollama  embedding
         self.embedding_function = OllamaEmbeddings(

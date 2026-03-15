@@ -26,7 +26,8 @@ class LLMProxy:
         self.llm = ChatOllama(
             model=llm_model,
             temperature=temperature,
-            base_url=os.getenv("OLLAMA_BASE_URL", "http://192.168.124.155:8080")
+            # base_url=os.getenv("OLLAMA_BASE_URL", "http://192.168.124.155:8080")
+            base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
         )
         self.tools: List[BaseTool] = []
         # agent to  Runnable
